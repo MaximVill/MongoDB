@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Журнал</title>
+	</head>
+	<body>
+		<h1>Электронный научный журнал</h1>
+		<button onclick="fetchArticles('/api/articles')">📋 Список статей</button>
+		<hr />
+		<input type="text" id="titleInput" placeholder="Название" />
+		<button
+			onclick="
+				fetchArticles(
+					`/api/search/title?q=${document.getElementById('titleInput').value}`,
+				)
+			"
+		>
+			🔍 Поиск по названию
+		</button>
+		<hr />
+		<select id="authorSelect">
+			<option value="">Автор</option>
+		</select>
+		<button
+			onclick="
+				fetchArticles(
+					`/api/search/author?a=${document.getElementById('authorSelect').value}`,
+				)
+			"
+		>
+			👤 Поиск по автору
+		</button>
+		<hr />
+		<table
+			border="1"
+			cellpadding="5"
+			style="width: 100%; border-collapse: collapse"
+		>
+			<tr>
+				<th>№</th>
+				<th>Название</th>
+				<th>Авторы</th>
+				<th>Дата</th>
+			</tr>
+			<tbody id="tbl"></tbody>
+		</table>
+
+		<script>
+			async function fetchArticles(url) {
+				const res = await fetch(url)
+				const data = await res.json()
+				const tbody = document.getElementById('tbl')
+				tbody.innerHTML = ''
+				data.forEach((a, i) => {
+					tbody.innerHTML += `<tr><td>${i + 1}</td><td>${a.title}</td><td>${a.authors.join(', ')}</td><td>${new Date(a.date).toLocaleDateString()}</td></tr>`
+				})
+			}
+			// Загрузка авторов при старте
+			fetch('/api/authors')
+				.then((r) => r.json())
+				.then((arr) => {
+					const sel = document.getElementById('authorSelect')
+					arr.forEach(
+						(a) => (sel.innerHTML += `<option value="${a}">${a}</option>`),
+					)
+				})
+		</script>
+	</body>
+</html>
