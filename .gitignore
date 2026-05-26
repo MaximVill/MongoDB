@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# MongoDB
+mongod.log
+*.wt
+*.journal
+diagnostic.data/
+configdb/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime
+pids/
+*.pid
+*.seed
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Build
+dist/
+build/
+
+# Local database dump
+*.dump
+*.bson
