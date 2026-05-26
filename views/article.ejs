@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><title><%= article.title %></title></head>
+<body style="max-width:800px;margin:20px auto;font-family:system-ui;">
+  <a href="/">← Назад</a>
+  <h1><%= article.title %></h1>
+  <p><b>Авторы:</b> <%= article.authors.join(', ') %> | <b>Дата:</b> <%= new Date(article.date).toLocaleDateString() %></p>
+  <p><b>Теги:</b> <%= article.tags.join(', ') || '-' %></p>
+  <hr><pre style="white-space:pre-wrap;"><%= article.content %></pre><hr>
+  <h3>📝 Рецензии (<%= article.reviews.length %>)</h3>
+  <% if(article.reviews.length) { %>
+    <% article.reviews.forEach(r => { %>
+      <div style="border:1px solid #ccc;padding:10px;margin:5px 0;">
+        <b><%= r.name %></b> (⭐ <%= r.rating %>/10)<p><%= r.message %></p>
+      </div>
+    <% }) %>
+  <% } else { %> <p>Пока нет рецензий</p> <% } %>
+</body></html>

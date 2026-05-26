@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Журнал</title>
+	</head>
+	<body style="font-family: system-ui; margin: 20px">
+		<h1>📚 Электронный научный журнал</h1>
+		<button onclick="load('/api/articles')">📋 Список</button>
+		<button onclick="load('/api/top')">🔥 Топ статей</button>
+		<a href="/create"><button>➕ Создать статью</button></a>
+		<hr />
+		<input id="tq" placeholder="Название" />
+		<button onclick="load(`/api/search/title?q=${tq.value}`)">
+			🔍 По названию
+		</button>
+		<select id="aq"></select>
+		<button onclick="load(`/api/search/author?a=${aq.value}`)">
+			👤 По автору
+		</button>
+		<input type="date" id="d1" /> - <input type="date" id="d2" />
+		<button
+			onclick="load(`/api/search/date?start=${d1.value}&end=${d2.value}`)"
+		>
+			📅 По дате
+		</button>
+		<hr />
+		<table
+			border="1"
+			cellpadding="6"
+			style="width: 100%; border-collapse: collapse"
+		>
+			<tr>
+				<th>№</th>
+				<th>Название</th>
+				<th>Авторы</th>
+				<th>Дата</th>
+				<th>Действия</th>
+			</tr>
+			<tbody id="tbl"></tbody>
+		</table>
+		<script>
+			fetch('/api/authors')
+				.then((r) => r.json())
+				.then((a) => {
+					const s = document.getElementById('aq')
+					a.forEach(
+						(v) => (s.innerHTML += `<option value="${v}">${v}</option>`),
+					)
+				})
+			async function load(url) {
+				const data = await (await fetch(url)).json()
+				const tb = document.getElementById('tbl')
+				tb.innerHTML = ''
+				if (!data.length)
+					tb.innerHTML = '<tr><td colspan="5">Нет результатов</td></tr>'
+				data.forEach((a, i) => {
+					tb.innerHTML += `<tr>
+          <td>${i + 1}</td><td>${a.title}</td><td>${a.authors?.join(', ') || '-'}</td><td>${new Date(a.date).toLocaleDateString()}</td>
+          <td>
+            <a href="/article/${a._id}" title="Открыть">👁️</a>
+            <form method="POST" action="/api/delete/${a._id}" style="display:inline" onsubmit="return confirm('Удалить?')">
+              <button type="submit" style="border:none;background:none;cursor:pointer">🗑️</button>
+            </form>
+          </td>
+        </tr>`
+				})
+				document.querySelector('h1').textContent = url.includes('/api/top')
+					? '🔥 Топ статей (рейтинг + рецензии)'
+					: '📚 Электронный научный журнал'
+			}
+		</script>
+	</body>
+</html>

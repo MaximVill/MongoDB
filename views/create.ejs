@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Создание статьи</title>
+	</head>
+	<body style="max-width: 600px; margin: 20px auto">
+		<h1>➕ Новая статья</h1>
+		<form method="POST" action="/api/create">
+			<label
+				>Название:<br /><input
+					name="title"
+					required
+					style="width: 100%" /></label
+			><br /><br />
+			<label
+				>Авторы (через запятую):<br /><input
+					name="authors"
+					required
+					style="width: 100%" /></label
+			><br /><br />
+			<label
+				>Дата:<br /><input type="date" name="date" style="width: 100%" /></label
+			><br /><br />
+			<label
+				>Теги (через запятую):<br /><input
+					name="tags"
+					style="width: 100%" /></label
+			><br /><br />
+			<label
+				>Содержимое:<br /><textarea
+					name="content"
+					rows="8"
+					required
+					style="width: 100%"
+				></textarea></label
+			><br /><br />
+			<button type="submit">💾 Сохранить</button>
+		</form>
+		<br /><a href="/">← Назад</a>
+	</body>
+</html>
