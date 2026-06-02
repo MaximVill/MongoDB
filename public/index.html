@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Football Stats DB</title>
 		<style>
-			/* ── Reset ─────────────────────────────────────────────── */
 			*,
 			*::before,
 			*::after {
@@ -24,7 +23,6 @@
 				min-height: 100vh;
 			}
 
-			/* ── Sidebar ────────────────────────────────────────────── */
 			.sidebar {
 				width: 220px;
 				background: #fff;
@@ -78,7 +76,6 @@
 				color: #fff;
 			}
 
-			/* ── Main ───────────────────────────────────────────────── */
 			.main {
 				margin-left: 220px;
 				flex: 1;
@@ -106,7 +103,6 @@
 				font-weight: 700;
 			}
 
-			/* ── Stat Cards ─────────────────────────────────────────── */
 			.cards-grid {
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
@@ -136,14 +132,12 @@
 				color: #000;
 			}
 
-			/* ── Two-col dashboard ──────────────────────────────────── */
 			.dash-grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: 1.25rem;
 			}
 
-			/* ── Table ──────────────────────────────────────────────── */
 			table {
 				width: 100%;
 				border-collapse: collapse;
@@ -175,7 +169,6 @@
 				background: #f0f0f0;
 			}
 
-			/* ── Badges ─────────────────────────────────────────────── */
 			.badge {
 				display: inline-block;
 				border-radius: 4px;
@@ -218,7 +211,6 @@
 				font-weight: 700;
 			}
 
-			/* ── Toolbar ────────────────────────────────────────────── */
 			.toolbar {
 				display: flex;
 				gap: 0.65rem;
@@ -227,7 +219,6 @@
 				align-items: center;
 			}
 
-			/* ── Inputs ─────────────────────────────────────────────── */
 			input[type='text'],
 			input[type='number'],
 			input[type='date'],
@@ -253,7 +244,6 @@
 				min-width: 160px;
 			}
 
-			/* ── Buttons ────────────────────────────────────────────── */
 			.btn {
 				display: inline-flex;
 				align-items: center;
@@ -293,7 +283,6 @@
 				font-size: 0.78rem;
 			}
 
-			/* ── Player Cards ───────────────────────────────────────── */
 			.players-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
@@ -336,7 +325,6 @@
 				font-weight: 700;
 			}
 
-			/* ── Match Cards ────────────────────────────────────────── */
 			.match-card {
 				background: #fff;
 				border: 1px solid #000;
@@ -376,7 +364,6 @@
 				margin-right: 0.45rem;
 			}
 
-			/* ── Form Panel ─────────────────────────────────────────── */
 			.form-panel {
 				background: #fff;
 				border: 1px solid #000;
@@ -403,7 +390,6 @@
 				letter-spacing: 0.04em;
 			}
 
-			/* ── Bar Chart ──────────────────────────────────────────── */
 			.bar-chart {
 				display: flex;
 				flex-direction: column;
@@ -446,7 +432,6 @@
 				flex-shrink: 0;
 			}
 
-			/* ── Toast ──────────────────────────────────────────────── */
 			#toast {
 				position: fixed;
 				bottom: 1.5rem;
@@ -472,7 +457,6 @@
 				opacity: 1;
 			}
 
-			/* ── Utility ────────────────────────────────────────────── */
 			.hidden {
 				display: none !important;
 			}
@@ -496,7 +480,7 @@
 		</style>
 	</head>
 	<body>
-		<!-- ──────────── SIDEBAR ──────────── -->
+		<!-- SIDEBAR -->
 		<nav class="sidebar">
 			<div class="logo">Football Stats</div>
 			<div
@@ -517,9 +501,8 @@
 			</div>
 		</nav>
 
-		<!-- ──────────── MAIN ──────────── -->
 		<main class="main">
-			<!-- ════ DASHBOARD ════ -->
+			<!-- DASHBOARD -->
 			<section id="s-dashboard" class="section active">
 				<div class="page-title">Дашборд</div>
 
@@ -554,7 +537,7 @@
 				</div>
 			</section>
 
-			<!-- ════ PLAYERS ════ -->
+			<!-- PLAYERS -->
 			<section id="s-players" class="section">
 				<div class="page-title">Игроки</div>
 
@@ -582,7 +565,7 @@
 				</div>
 			</section>
 
-			<!-- ════ MATCHES ════ -->
+			<!-- MATCHES -->
 			<section id="s-matches" class="section">
 				<div class="page-title">Матчи</div>
 
@@ -658,7 +641,7 @@
 				<div id="matches-list"><div class="loader">Загрузка…</div></div>
 			</section>
 
-			<!-- ════ ADMIN ════ -->
+			<!-- ADMIN -->
 			<section id="s-admin" class="section">
 				<div class="page-title">Администратор</div>
 
@@ -673,9 +656,7 @@
 		<div id="toast"></div>
 
 		<script>
-			// ════════════════════════════════════════════════════════════
 			//  Навигация
-			// ════════════════════════════════════════════════════════════
 			function nav(el, id) {
 				document
 					.querySelectorAll('.section')
@@ -692,9 +673,7 @@
 				if (id === 'admin') loadAdmin()
 			}
 
-			// ════════════════════════════════════════════════════════════
 			//  Toast-уведомления
-			// ════════════════════════════════════════════════════════════
 			let _toastTimer
 			function toast(msg, type = 'ok') {
 				const el = document.getElementById('toast')
@@ -706,9 +685,7 @@
 				}, 2800)
 			}
 
-			// ════════════════════════════════════════════════════════════
 			//  API helper (fetch + JSON)
-			// ════════════════════════════════════════════════════════════
 			async function api(method, url, body) {
 				const opts = { method, headers: { 'Content-Type': 'application/json' } }
 				if (body) opts.body = JSON.stringify(body)
@@ -718,9 +695,7 @@
 				return data
 			}
 
-			// ════════════════════════════════════════════════════════════
 			//  DASHBOARD
-			// ════════════════════════════════════════════════════════════
 			async function loadDashboard() {
 				try {
 					const [ov, top, chart] = await Promise.all([
@@ -774,9 +749,7 @@
 				}
 			}
 
-			// ════════════════════════════════════════════════════════════
 			//  PLAYERS
-			// ════════════════════════════════════════════════════════════
 			async function loadPlayers(url = '/api/players') {
 				document.getElementById('players-grid').innerHTML =
 					'<div class="loader">Загрузка…</div>'
@@ -819,18 +792,15 @@
 				const name = document.getElementById('search-q').value.trim()
 				const pos = document.getElementById('pos-filter').value
 				let url = '/api/players'
-				if (name) url = `/api/players/search?name=${encodeURIComponent(name)}`
-				else if (pos) url = `/api/players?position=${encodeURIComponent(pos)}`
-				await loadPlayers(url)
-				// Фильтр по позиции поверх поискового результата
+
 				if (name && pos) {
-					const wrap = document.getElementById('players-grid')
-					const cards = wrap.querySelectorAll('.player-card')
-					// Небольшой трюк: перезапрос с двумя параметрами
-					await loadPlayers(
-						`/api/players/search?name=${encodeURIComponent(name)}`,
-					)
+					url = `/api/players/search?name=${encodeURIComponent(name)}&position=${encodeURIComponent(pos)}`
+				} else if (name) {
+					url = `/api/players/search?name=${encodeURIComponent(name)}`
+				} else if (pos) {
+					url = `/api/players?position=${encodeURIComponent(pos)}`
 				}
+				await loadPlayers(url)
 			}
 
 			function resetSearch() {
@@ -849,9 +819,7 @@
 				}
 			}
 
-			// ════════════════════════════════════════════════════════════
 			//  MATCHES
-			// ════════════════════════════════════════════════════════════
 			async function loadMatches() {
 				const wrap = document.getElementById('matches-list')
 				wrap.innerHTML = '<div class="loader">Загрузка…</div>'
@@ -938,9 +906,7 @@
 				}
 			}
 
-			// ════════════════════════════════════════════════════════════
 			//  ADMIN
-			// ════════════════════════════════════════════════════════════
 			async function loadAdmin() {
 				try {
 					const [users, players] = await Promise.all([
@@ -1062,9 +1028,7 @@
 				}
 			}
 
-			// ════════════════════════════════════════════════════════════
 			//  Инициализация — загружаем дашборд при старте
-			// ════════════════════════════════════════════════════════════
 			loadDashboard()
 		</script>
 	</body>
