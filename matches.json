@@ -1,0 +1,517 @@
+[
+	{
+		"homeTeam": "Real Madrid",
+		"awayTeam": "Barcelona",
+		"date": "2024-10-26",
+		"tournament": "La Liga",
+		"season": "2024/2025",
+		"stadium": "Santiago Bernabéu",
+		"attendance": 81044,
+		"score": { "home": 4, "away": 0 },
+		"lineups": {
+			"home": [
+				"Courtois",
+				"Carvajal",
+				"Militão",
+				"Rüdiger",
+				"Mendy",
+				"Modrić",
+				"Kroos",
+				"Valverde",
+				"Vinicius",
+				"Mbappé",
+				"Bellingham"
+			],
+			"away": [
+				"Ter Stegen",
+				"Koundé",
+				"Araújo",
+				"Martínez",
+				"Balde",
+				"Pedri",
+				"Gavi",
+				"De Jong",
+				"Yamal",
+				"Lewandowski",
+				"Raphinha"
+			]
+		},
+		"events": [
+			{
+				"type": "goal",
+				"player": "Vinicius Junior",
+				"team": "Real Madrid",
+				"minute": 14
+			},
+			{
+				"type": "yellowCard",
+				"player": "Gavi",
+				"team": "Barcelona",
+				"minute": 27
+			},
+			{
+				"type": "goal",
+				"player": "Kylian Mbappé",
+				"team": "Real Madrid",
+				"minute": 35
+			},
+			{
+				"type": "substitution",
+				"playerOut": "Pedri",
+				"playerIn": "Fermín López",
+				"team": "Barcelona",
+				"minute": 46
+			},
+			{
+				"type": "goal",
+				"player": "Luka Modrić",
+				"team": "Real Madrid",
+				"minute": 58
+			},
+			{
+				"type": "redCard",
+				"player": "Ronald Araújo",
+				"team": "Barcelona",
+				"minute": 67
+			},
+			{
+				"type": "goal",
+				"player": "Kylian Mbappé",
+				"team": "Real Madrid",
+				"minute": 82
+			}
+		],
+		"comments": [
+			{
+				"author": "clasico_watcher",
+				"text": "Исторический разгром! Мадрид был великолепен.",
+				"date": "2024-10-26",
+				"banned": false
+			}
+		]
+	},
+	{
+		"homeTeam": "Manchester City",
+		"awayTeam": "Arsenal",
+		"date": "2024-09-22",
+		"tournament": "Premier League",
+		"season": "2024/2025",
+		"stadium": "Etihad Stadium",
+		"attendance": 53400,
+		"score": { "home": 2, "away": 2 },
+		"lineups": {
+			"home": [
+				"Ederson",
+				"Walker",
+				"Dias",
+				"Akanji",
+				"Gvardiol",
+				"Rodri",
+				"De Bruyne",
+				"Bernardo Silva",
+				"Doku",
+				"Haaland",
+				"Foden"
+			],
+			"away": [
+				"Raya",
+				"White",
+				"Saliba",
+				"Gabriel",
+				"Zinchenko",
+				"Rice",
+				"Partey",
+				"Ødegaard",
+				"Saka",
+				"Havertz",
+				"Martinelli"
+			]
+		},
+		"events": [
+			{
+				"type": "goal",
+				"player": "Erling Haaland",
+				"team": "Manchester City",
+				"minute": 10
+			},
+			{
+				"type": "goal",
+				"player": "Bukayo Saka",
+				"team": "Arsenal",
+				"minute": 24
+			},
+			{
+				"type": "yellowCard",
+				"player": "Rodri",
+				"team": "Manchester City",
+				"minute": 38
+			},
+			{
+				"type": "goal",
+				"player": "Kai Havertz",
+				"team": "Arsenal",
+				"minute": 51
+			},
+			{
+				"type": "substitution",
+				"playerOut": "Doku",
+				"playerIn": "Gündogan",
+				"team": "Manchester City",
+				"minute": 60
+			},
+			{
+				"type": "goal",
+				"player": "Erling Haaland",
+				"team": "Manchester City",
+				"minute": 78
+			}
+		],
+		"comments": [
+			{
+				"author": "epl_analyst",
+				"text": "Ничья в таком матче — справедливый результат.",
+				"date": "2024-09-22",
+				"banned": false
+			}
+		]
+	},
+	{
+		"homeTeam": "Bayern Munich",
+		"awayTeam": "Borussia Dortmund",
+		"date": "2024-11-02",
+		"tournament": "Bundesliga",
+		"season": "2024/2025",
+		"stadium": "Allianz Arena",
+		"attendance": 75000,
+		"score": { "home": 3, "away": 1 },
+		"lineups": {
+			"home": [
+				"Neuer",
+				"Kimmich",
+				"Upamecano",
+				"Kim",
+				"Davies",
+				"Goretzka",
+				"Musiala",
+				"Müller",
+				"Gnabry",
+				"Kane",
+				"Sané"
+			],
+			"away": [
+				"Kobel",
+				"Ryerson",
+				"Hummels",
+				"Schlotterbeck",
+				"Maatsen",
+				"Emre Can",
+				"Brandt",
+				"Sancho",
+				"Reus",
+				"Füllkrug",
+				"Adeyemi"
+			]
+		},
+		"events": [
+			{
+				"type": "goal",
+				"player": "Harry Kane",
+				"team": "Bayern Munich",
+				"minute": 8
+			},
+			{
+				"type": "goal",
+				"player": "Jadon Sancho",
+				"team": "Borussia Dortmund",
+				"minute": 31
+			},
+			{
+				"type": "yellowCard",
+				"player": "Emre Can",
+				"team": "Borussia Dortmund",
+				"minute": 44
+			},
+			{
+				"type": "goal",
+				"player": "Jamal Musiala",
+				"team": "Bayern Munich",
+				"minute": 55
+			},
+			{
+				"type": "substitution",
+				"playerOut": "Gnabry",
+				"playerIn": "Coman",
+				"team": "Bayern Munich",
+				"minute": 62
+			},
+			{
+				"type": "goal",
+				"player": "Harry Kane",
+				"team": "Bayern Munich",
+				"minute": 88
+			}
+		],
+		"comments": []
+	},
+	{
+		"homeTeam": "PSG",
+		"awayTeam": "Marseille",
+		"date": "2024-09-15",
+		"tournament": "Ligue 1",
+		"season": "2024/2025",
+		"stadium": "Parc des Princes",
+		"attendance": 47929,
+		"score": { "home": 3, "away": 0 },
+		"lineups": {
+			"home": [
+				"Donnarumma",
+				"Hakimi",
+				"Marquinhos",
+				"Pacho",
+				"Nuno Mendes",
+				"Vitinha",
+				"Ruiz",
+				"Lee",
+				"Dembélé",
+				"Ramos",
+				"Barcola"
+			],
+			"away": [
+				"Rulli",
+				"Clauss",
+				"Balerdi",
+				"Gigot",
+				"Lodi",
+				"Koné",
+				"Veretout",
+				"Harit",
+				"Greenwood",
+				"Aubameyang",
+				"Ndiaye"
+			]
+		},
+		"events": [
+			{
+				"type": "goal",
+				"player": "Gonçalo Ramos",
+				"team": "PSG",
+				"minute": 19
+			},
+			{
+				"type": "yellowCard",
+				"player": "Leonardo Balerdi",
+				"team": "Marseille",
+				"minute": 33
+			},
+			{
+				"type": "goal",
+				"player": "Ousmane Dembélé",
+				"team": "PSG",
+				"minute": 47
+			},
+			{
+				"type": "substitution",
+				"playerOut": "Lee",
+				"playerIn": "Asensio",
+				"team": "PSG",
+				"minute": 65
+			},
+			{
+				"type": "redCard",
+				"player": "Valentin Rongier",
+				"team": "Marseille",
+				"minute": 72
+			},
+			{
+				"type": "goal",
+				"player": "Bradley Barcola",
+				"team": "PSG",
+				"minute": 85
+			}
+		],
+		"comments": [
+			{
+				"author": "ligue1_fan",
+				"text": "Le Classique всегда горячий. ПСЖ доминировал весь матч.",
+				"date": "2024-09-15",
+				"banned": false
+			},
+			{
+				"author": "spam_bot",
+				"text": "Купи ставки тут site.ru",
+				"date": "2024-09-15",
+				"banned": true
+			}
+		]
+	},
+	{
+		"homeTeam": "Inter Milan",
+		"awayTeam": "AC Milan",
+		"date": "2024-10-05",
+		"tournament": "Serie A",
+		"season": "2024/2025",
+		"stadium": "San Siro",
+		"attendance": 75817,
+		"score": { "home": 2, "away": 3 },
+		"lineups": {
+			"home": [
+				"Sommer",
+				"Pavard",
+				"de Vrij",
+				"Bastoni",
+				"Darmian",
+				"Barella",
+				"Çalhanoğlu",
+				"Mkhitaryan",
+				"Dumfries",
+				"Lautaro",
+				"Thuram"
+			],
+			"away": [
+				"Maignan",
+				"Emerson",
+				"Tomori",
+				"Thiaw",
+				"Hernández",
+				"Musah",
+				"Reijnders",
+				"Fofana",
+				"Chukwueze",
+				"Morata",
+				"Leão"
+			]
+		},
+		"events": [
+			{
+				"type": "goal",
+				"player": "Lautaro Martínez",
+				"team": "Inter Milan",
+				"minute": 11
+			},
+			{
+				"type": "goal",
+				"player": "Álvaro Morata",
+				"team": "AC Milan",
+				"minute": 28
+			},
+			{
+				"type": "goal",
+				"player": "Marcus Thuram",
+				"team": "Inter Milan",
+				"minute": 39
+			},
+			{
+				"type": "yellowCard",
+				"player": "Nicolò Barella",
+				"team": "Inter Milan",
+				"minute": 52
+			},
+			{
+				"type": "goal",
+				"player": "Rafael Leão",
+				"team": "AC Milan",
+				"minute": 61
+			},
+			{
+				"type": "substitution",
+				"playerOut": "Morata",
+				"playerIn": "Giroud",
+				"team": "AC Milan",
+				"minute": 68
+			},
+			{
+				"type": "goal",
+				"player": "Rafael Leão",
+				"team": "AC Milan",
+				"minute": 79
+			},
+			{
+				"type": "goal",
+				"player": "Álvaro Morata",
+				"team": "AC Milan",
+				"minute": 90
+			}
+		],
+		"comments": [
+			{
+				"author": "derby_king",
+				"text": "Derby della Madonnina в лучшем виде! Сумасшедший матч.",
+				"date": "2024-10-05",
+				"banned": false
+			}
+		]
+	},
+	{
+		"homeTeam": "Liverpool",
+		"awayTeam": "Chelsea",
+		"date": "2024-10-19",
+		"tournament": "Premier League",
+		"season": "2024/2025",
+		"stadium": "Anfield",
+		"attendance": 53394,
+		"score": { "home": 1, "away": 1 },
+		"lineups": {
+			"home": [
+				"Alisson",
+				"Alexander-Arnold",
+				"Konaté",
+				"Van Dijk",
+				"Robertson",
+				"Mac Allister",
+				"Gravenberch",
+				"Szoboszlai",
+				"Salah",
+				"Núñez",
+				"Díaz"
+			],
+			"away": [
+				"Sánchez",
+				"Gusto",
+				"Chalobah",
+				"Colwill",
+				"Cucurella",
+				"Caicedo",
+				"Enzo",
+				"Palmer",
+				"Sterling",
+				"Jackson",
+				"Mudryk"
+			]
+		},
+		"events": [
+			{
+				"type": "goal",
+				"player": "Mohamed Salah",
+				"team": "Liverpool",
+				"minute": 33
+			},
+			{
+				"type": "yellowCard",
+				"player": "Enzo Fernández",
+				"team": "Chelsea",
+				"minute": 55
+			},
+			{
+				"type": "substitution",
+				"playerOut": "Mudryk",
+				"playerIn": "Nkunku",
+				"team": "Chelsea",
+				"minute": 63
+			},
+			{
+				"type": "goal",
+				"player": "Cole Palmer",
+				"team": "Chelsea",
+				"minute": 74
+			}
+		],
+		"comments": [
+			{
+				"author": "anfield_roar",
+				"text": "Энфилд всегда атмосферный, но хотелось бы победы.",
+				"date": "2024-10-19",
+				"banned": false
+			}
+		]
+	}
+]
