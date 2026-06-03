@@ -13,13 +13,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 let db // глобальный handle на БД
 
-//  Подключение к MongoDB + начальный импорт данных
+// Подключение к MongoDB + начальный импорт данных
 async function connectDB() {
 	const client = new MongoClient(URI)
 	await client.connect()
 	db = client.db(DB)
 	console.log(`MongoDB: подключено → ${DB}`)
-
 	await seedCollection('players', 'players.json')
 	await seedCollection('matches', 'matches.json')
 	await seedCollection('users', 'users.json')
@@ -46,14 +45,14 @@ async function seedCollection(colName, filename) {
 	)
 }
 
-//  Обёртка для async-обработчиков (centralised error handling)
+// Обёртка для async-обработчиков (централизованная обработка ошибок)
 const wrap = (fn) => (req, res) =>
 	fn(req, res).catch((err) => {
 		console.error('API Error:', err.message)
 		res.status(500).json({ error: err.message })
 	})
 
-//  DASHBOARD — сводная статистика
+// DASHBOARD — сводная статистика
 app.get(
 	'/api/overview',
 	wrap(async (req, res) => {
@@ -62,18 +61,15 @@ app.get(
 			db.collection('matches').countDocuments(),
 			db.collection('users').countDocuments(),
 		])
-
-		// Суммарные голы всех игроков
 		const agg = await db
 			.collection('players')
 			.aggregate([{ $group: { _id: null, total: { $sum: '$stats.goals' } } }])
 			.toArray()
-
 		res.json({ players, matches, users, totalGoals: agg[0]?.total ?? 0 })
 	}),
 )
 
-//  PLAYERS — маршруты
+// PLAYERS — маршруты
 // Топ-N бомбардиров (GET /api/players/top?limit=5)
 app.get(
 	'/api/players/top',
@@ -108,10 +104,8 @@ app.get(
 	wrap(async (req, res) => {
 		const { name, position } = req.query
 		if (!name) return res.status(400).json({ error: 'Введите имя для поиска' })
-
 		const query = { name: { $regex: name, $options: 'i' } }
 		if (position) query.position = position
-
 		const list = await db.collection('players').find(query).toArray()
 		res.json(list)
 	}),
@@ -152,7 +146,7 @@ app.get(
 	}),
 )
 
-// +1 гол игроку — реальный $inc в MongoDB
+// +1 гол игроку — атомарный $inc в MongoDB
 app.put(
 	'/api/players/:name/goal',
 	wrap(async (req, res) => {
@@ -174,19 +168,20 @@ app.put(
 		const { author } = req.body
 		if (!author) return res.status(400).json({ error: 'Укажите автора' })
 
-		const result = await db
-			.collection('players')
-			.updateOne(
-				{ name, 'comments.author': author },
-				{ $set: { 'comments.$.banned': true } },
-			)
+		const result = await db.collection('players').updateOne(
+			{ name },
+			{ $set: { 'comments.$[elem].banned': true } },
+			{ arrayFilters: [{ 'elem.author': author }] }, // ИСПРАВЛЕНО
+		)
 		if (!result.matchedCount)
+			return res.status(404).json({ error: 'Игрок не найден' })
+		if (!result.modifiedCount)
 			return res.status(404).json({ error: 'Комментарий не найден' })
 		res.json({ ok: true })
 	}),
 )
 
-//  MATCHES — маршруты
+// MATCHES — маршруты
 // Голы по командам в матчах: $unwind + $group
 app.get(
 	'/api/matches/stats/goals-by-team',
@@ -235,14 +230,13 @@ app.post(
 			scoreHome,
 			scoreAway,
 		} = req.body
-
 		if (!homeTeam || !awayTeam || !date || !tournament)
 			return res.status(400).json({ error: 'Заполните обязательные поля (*)' })
 
 		const doc = {
 			homeTeam,
 			awayTeam,
-			date,
+			date: new Date(date),
 			tournament,
 			season: season || '2024/2025',
 			stadium: stadium || '',
@@ -252,7 +246,6 @@ app.post(
 			events: [],
 			comments: [],
 		}
-
 		const { insertedId } = await db.collection('matches').insertOne(doc)
 		res.status(201).json({ ok: true, insertedId, match: doc })
 	}),
@@ -275,16 +268,19 @@ app.put(
 		const result = await db
 			.collection('matches')
 			.updateOne(
-				{ _id, 'comments.author': author },
-				{ $set: { 'comments.$.banned': true } },
+				{ _id },
+				{ $set: { 'comments.$[elem].banned': true } },
+				{ arrayFilters: [{ 'elem.author': author }] },
 			)
 		if (!result.matchedCount)
+			return res.status(404).json({ error: 'Матч не найден' })
+		if (!result.modifiedCount)
 			return res.status(404).json({ error: 'Комментарий не найден' })
 		res.json({ ok: true })
 	}),
 )
 
-//  USERS — маршруты
+// USERS — маршруты
 // Все пользователи (без хэшей паролей)
 app.get(
 	'/api/users',
@@ -309,7 +305,7 @@ app.put(
 				$set: {
 					isBanned: true,
 					banReason: reason || 'Нарушение правил',
-					bannedAt: new Date().toISOString().split('T')[0],
+					bannedAt: new Date(),
 					bannedBy: 'admin_football',
 				},
 			},
@@ -320,7 +316,7 @@ app.put(
 	}),
 )
 
-//  Старт сервера
+// Старт сервера
 app.listen(PORT, async () => {
 	try {
 		await connectDB()

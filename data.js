@@ -6,7 +6,7 @@ footballDB.matches.drop()
 footballDB.users.drop()
 print('Коллекции очищены\n')
 
-//  Коллекция: players
+// Коллекция: players
 footballDB.players.insertMany([
 	{
 		name: 'Lionel Messi',
@@ -33,13 +33,13 @@ footballDB.players.insertMany([
 			{
 				author: 'fan_arg',
 				text: 'Лучший игрок в истории футбола!',
-				date: '2024-03-10',
+				date: new Date('2024-03-10'),
 				banned: false,
 			},
 			{
 				author: 'analyst_pro',
 				text: 'Его видение поля не поддаётся описанию.',
-				date: '2024-04-01',
+				date: new Date('2024-04-01'),
 				banned: false,
 			},
 		],
@@ -72,7 +72,7 @@ footballDB.players.insertMany([
 			{
 				author: 'cr7_fan',
 				text: 'GOAT без сомнений. Siuuuu!',
-				date: '2024-02-14',
+				date: new Date('2024-02-14'),
 				banned: false,
 			},
 		],
@@ -102,13 +102,13 @@ footballDB.players.insertMany([
 			{
 				author: 'speed_lover',
 				text: 'Быстрее всех на планете. Будущее футбола.',
-				date: '2024-05-20',
+				date: new Date('2024-05-20'),
 				banned: false,
 			},
 			{
 				author: 'troll_user',
 				text: 'Переоценённый игрок!!!',
-				date: '2024-05-21',
+				date: new Date('2024-05-21'),
 				banned: true,
 			},
 		],
@@ -139,7 +139,7 @@ footballDB.players.insertMany([
 			{
 				author: 'goal_machine',
 				text: 'Машина для голов. Такого центрфорварда не было давно.',
-				date: '2024-01-30',
+				date: new Date('2024-01-30'),
 				banned: false,
 			},
 		],
@@ -169,7 +169,7 @@ footballDB.players.insertMany([
 			{
 				author: 'midfield_fan',
 				text: 'Лучший полузащитник поколения. Элегантность в каждом касании.',
-				date: '2024-02-28',
+				date: new Date('2024-02-28'),
 				banned: false,
 			},
 		],
@@ -196,7 +196,7 @@ footballDB.players.insertMany([
 			{
 				author: 'real_fan_madrid',
 				text: 'Vinicius — это магия на левом фланге!',
-				date: '2024-06-01',
+				date: new Date('2024-06-01'),
 				banned: false,
 			},
 		],
@@ -204,12 +204,12 @@ footballDB.players.insertMany([
 ])
 print('players: ' + footballDB.players.countDocuments() + ' документов')
 
-//  Коллекция: matches
+// Коллекция: matches
 footballDB.matches.insertMany([
 	{
 		homeTeam: 'Real Madrid',
 		awayTeam: 'Barcelona',
-		date: '2024-10-26',
+		date: new Date('2024-10-26'),
 		tournament: 'La Liga',
 		season: '2024/2025',
 		stadium: 'Santiago Bernabéu',
@@ -222,11 +222,11 @@ footballDB.matches.insertMany([
 				'Militão',
 				'Rüdiger',
 				'Mendy',
-				'Modrić',
+				'Luka Modrić',
 				'Kroos',
 				'Valverde',
-				'Vinicius',
-				'Mbappé',
+				'Vinicius Junior',
+				'Kylian Mbappé',
 				'Bellingham',
 			],
 			away: [
@@ -282,7 +282,7 @@ footballDB.matches.insertMany([
 			{
 				author: 'clasico_watcher',
 				text: 'Исторический разгром! Мадрид был великолепен.',
-				date: '2024-10-26',
+				date: new Date('2024-10-26'),
 				banned: false,
 			},
 		],
@@ -290,7 +290,7 @@ footballDB.matches.insertMany([
 	{
 		homeTeam: 'Manchester City',
 		awayTeam: 'Arsenal',
-		date: '2024-09-22',
+		date: new Date('2024-09-22'),
 		tournament: 'Premier League',
 		season: '2024/2025',
 		stadium: 'Etihad Stadium',
@@ -307,7 +307,7 @@ footballDB.matches.insertMany([
 				'De Bruyne',
 				'Bernardo Silva',
 				'Doku',
-				'Haaland',
+				'Erling Haaland',
 				'Foden',
 			],
 			away: [
@@ -357,7 +357,7 @@ footballDB.matches.insertMany([
 			{
 				author: 'epl_analyst',
 				text: 'Ничья в таком матче — справедливый результат.',
-				date: '2024-09-22',
+				date: new Date('2024-09-22'),
 				banned: false,
 			},
 		],
@@ -365,7 +365,7 @@ footballDB.matches.insertMany([
 	{
 		homeTeam: 'Bayern Munich',
 		awayTeam: 'Borussia Dortmund',
-		date: '2024-11-02',
+		date: new Date('2024-11-02'),
 		tournament: 'Bundesliga',
 		season: '2024/2025',
 		stadium: 'Allianz Arena',
@@ -433,7 +433,7 @@ footballDB.matches.insertMany([
 	{
 		homeTeam: 'PSG',
 		awayTeam: 'Marseille',
-		date: '2024-09-15',
+		date: new Date('2024-09-15'),
 		tournament: 'Ligue 1',
 		season: '2024/2025',
 		stadium: 'Parc des Princes',
@@ -495,13 +495,13 @@ footballDB.matches.insertMany([
 			{
 				author: 'ligue1_fan',
 				text: 'Le Classique всегда горячий. ПСЖ доминировал весь матч.',
-				date: '2024-09-15',
+				date: new Date('2024-09-15'),
 				banned: false,
 			},
 			{
 				author: 'spam_bot',
 				text: 'Купи ставки тут site.ru',
-				date: '2024-09-15',
+				date: new Date('2024-09-15'),
 				banned: true,
 			},
 		],
@@ -509,7 +509,7 @@ footballDB.matches.insertMany([
 	{
 		homeTeam: 'Inter Milan',
 		awayTeam: 'AC Milan',
-		date: '2024-10-05',
+		date: new Date('2024-10-05'),
 		tournament: 'Serie A',
 		season: '2024/2025',
 		stadium: 'San Siro',
@@ -578,7 +578,7 @@ footballDB.matches.insertMany([
 			{
 				author: 'derby_king',
 				text: 'Derby della Madonnina в лучшем виде! Сумасшедший матч.',
-				date: '2024-10-05',
+				date: new Date('2024-10-05'),
 				banned: false,
 			},
 		],
@@ -586,7 +586,7 @@ footballDB.matches.insertMany([
 	{
 		homeTeam: 'Liverpool',
 		awayTeam: 'Chelsea',
-		date: '2024-10-19',
+		date: new Date('2024-10-19'),
 		tournament: 'Premier League',
 		season: '2024/2025',
 		stadium: 'Anfield',
@@ -641,7 +641,7 @@ footballDB.matches.insertMany([
 			{
 				author: 'anfield_roar',
 				text: 'Энфилд всегда атмосферный, но хотелось бы победы.',
-				date: '2024-10-19',
+				date: new Date('2024-10-19'), // ИСПРАВЛЕНО: BSON Date
 				banned: false,
 			},
 		],
@@ -649,9 +649,7 @@ footballDB.matches.insertMany([
 ])
 print('matches: ' + footballDB.matches.countDocuments() + ' документов')
 
-print('\nБаза данных football_db успешно инициализирована!')
-
-//  Коллекция: users
+// Коллекция: users
 footballDB.users.insertMany([
 	{
 		username: 'fan_arg',
@@ -659,12 +657,15 @@ footballDB.users.insertMany([
 		passwordHash:
 			'$2b$10$abcdefghijklmnopqrstuuABCDEFGHIJKLMNOPQRSTUVWXYZ123456',
 		role: 'user',
-		registeredAt: '2022-11-15',
-		lastLogin: '2024-10-26',
+		registeredAt: new Date('2022-11-15'), // ИСПРАВЛЕНО: BSON Date
+		lastLogin: new Date('2024-10-26'), // ИСПРАВЛЕНО: BSON Date
 		isBanned: false,
 		favoriteTeam: 'Inter Miami',
 		commentCount: 24,
-		activity: { commentsLeft: 24, matchesWatched: 137, predictionsCorrect: 45 },
+		activity: {
+			matchesWatched: 137,
+			predictionsCorrect: 45,
+		},
 	},
 	{
 		username: 'analyst_pro',
@@ -672,13 +673,12 @@ footballDB.users.insertMany([
 		passwordHash:
 			'$2b$10$zyxwvutsrqponmlkjihggfZYXWVUTSRQPONMLKJIHGFEDCBA654321',
 		role: 'moderator',
-		registeredAt: '2021-03-20',
-		lastLogin: '2024-10-27',
+		registeredAt: new Date('2021-03-20'),
+		lastLogin: new Date('2024-10-27'),
 		isBanned: false,
 		favoriteTeam: 'Barcelona',
 		commentCount: 312,
 		activity: {
-			commentsLeft: 312,
 			matchesWatched: 540,
 			predictionsCorrect: 210,
 		},
@@ -689,12 +689,15 @@ footballDB.users.insertMany([
 		passwordHash:
 			'$2b$10$qwertyuiopasdfghjklzxcQWERTYUIOPASDFGHJKLZXCVBNM112233',
 		role: 'user',
-		registeredAt: '2023-08-01',
-		lastLogin: '2024-10-26',
+		registeredAt: new Date('2023-08-01'),
+		lastLogin: new Date('2024-10-26'),
 		isBanned: false,
 		favoriteTeam: 'Real Madrid',
 		commentCount: 87,
-		activity: { commentsLeft: 87, matchesWatched: 203, predictionsCorrect: 88 },
+		activity: {
+			matchesWatched: 203,
+			predictionsCorrect: 88,
+		},
 	},
 	{
 		username: 'admin_football',
@@ -702,12 +705,15 @@ footballDB.users.insertMany([
 		passwordHash:
 			'$2b$10$mnbvcxzlkjhgfdsapoiuytrMNBVCXZLKJHGFDSAPOIUYTREWQ998877',
 		role: 'admin',
-		registeredAt: '2020-01-01',
-		lastLogin: '2024-10-27',
+		registeredAt: new Date('2020-01-01'),
+		lastLogin: new Date('2024-10-27'),
 		isBanned: false,
 		favoriteTeam: null,
 		commentCount: 5,
-		activity: { commentsLeft: 5, matchesWatched: 999, predictionsCorrect: 0 },
+		activity: {
+			matchesWatched: 999,
+			predictionsCorrect: 0,
+		},
 	},
 	{
 		username: 'troll_user',
@@ -715,15 +721,18 @@ footballDB.users.insertMany([
 		passwordHash:
 			'$2b$10$trolololololololololollTROLOLOLOLOLOLOLOLOLOLOL000000',
 		role: 'user',
-		registeredAt: '2024-05-19',
-		lastLogin: '2024-05-21',
+		registeredAt: new Date('2024-05-19'),
+		lastLogin: new Date('2024-05-21'),
 		isBanned: true,
 		banReason: 'Систематические оскорбления и спам в комментариях',
-		bannedAt: '2024-05-22',
+		bannedAt: new Date('2024-05-22'), // ИСПРАВЛЕНО: BSON Date
 		bannedBy: 'admin_football',
 		favoriteTeam: 'PSG',
 		commentCount: 3,
-		activity: { commentsLeft: 3, matchesWatched: 12, predictionsCorrect: 1 },
+		activity: {
+			matchesWatched: 12,
+			predictionsCorrect: 1,
+		},
 	},
 	{
 		username: 'epl_analyst',
@@ -731,13 +740,12 @@ footballDB.users.insertMany([
 		passwordHash:
 			'$2b$10$epleplepleplepleplepleplEPLEPLEPLEPLEPLEPLEPLEPL445566',
 		role: 'moderator',
-		registeredAt: '2022-07-10',
-		lastLogin: '2024-09-23',
+		registeredAt: new Date('2022-07-10'),
+		lastLogin: new Date('2024-09-23'),
 		isBanned: false,
 		favoriteTeam: 'Manchester City',
 		commentCount: 198,
 		activity: {
-			commentsLeft: 198,
 			matchesWatched: 380,
 			predictionsCorrect: 155,
 		},
@@ -748,12 +756,24 @@ footballDB.users.insertMany([
 		passwordHash:
 			'$2b$10$derbyderbyderbyderbyderbDERBYDERBYDERBYDERBYDERBY778899',
 		role: 'user',
-		registeredAt: '2023-01-15',
-		lastLogin: '2024-10-06',
+		registeredAt: new Date('2023-01-15'),
+		lastLogin: new Date('2024-10-06'),
 		isBanned: false,
 		favoriteTeam: 'Inter Milan',
 		commentCount: 56,
-		activity: { commentsLeft: 56, matchesWatched: 95, predictionsCorrect: 40 },
+		activity: {
+			matchesWatched: 95,
+			predictionsCorrect: 40,
+		},
 	},
 ])
 print('users: ' + footballDB.users.countDocuments() + ' документов')
+
+// Индексы
+footballDB.players.createIndex({ 'stats.goals': -1 })
+footballDB.players.createIndex({ name: 1 })
+footballDB.matches.createIndex({ date: -1 })
+footballDB.matches.createIndex({ tournament: 1 })
+footballDB.users.createIndex({ username: 1 }, { unique: true })
+
+print('\nБаза данных football_db успешно инициализирована!')
